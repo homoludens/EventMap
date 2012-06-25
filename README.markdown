@@ -14,17 +14,18 @@ Simple Event Map Flask web application, including SQLAlchemy, WTForms and Bootst
     $ virtualenv venv
     $ . venv/bin/activate
 
-## Exit virtualenv
-    $ deactivate
-    
+
 ## Install Dependencies
     
-    pip install -r requires
+    pip install -r requires.txt
     
 ##  Start application
 
     python main.py
-   
+
+## Exit virtualenv
+    $ deactivate
+    
 ## Customizations
     Change this in __init__.py for reseting password:
       
