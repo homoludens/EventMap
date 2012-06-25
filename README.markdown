@@ -8,9 +8,12 @@ Simple Event Map Flask web application, including SQLAlchemy, WTForms and Bootst
 
 # Installation
 
+    $ git clone git://github.com/homoludens/EventMap.github
+    $ cd EventMap
+    
 ## Setting up virual envirement
     
-    sudo pip install virtualenv
+    $ sudo pip install virtualenv
     $ virtualenv venv
     $ . venv/bin/activate
 
