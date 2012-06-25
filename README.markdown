@@ -48,4 +48,4 @@ Although it is possible for a Flask app to be contained entirely within a single
 
 ## Screenshot
 
-![](https://raw.github.com/fogleman/HelloFlask/master/screenshot.png)
+![](https://raw.github.com/homoludens/EventMap/master/screenshot.png)
