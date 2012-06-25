@@ -1,0 +1,48 @@
+{% from "util.html" import render_field %}
+
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <script>
+    $(function(){
+                  $('#date').datepicker({
+                          format: 'yyyy-mm-dd'
+                  });
+              });
+    </script>
+
+     <script type="text/javascript">
+        window.onload=function(){
+            initialize();
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="row well">
+  <div class="span4">
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        {{ render_field(form.text, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.text2, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.longitude, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.latitude, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.date, label=True, class="input-xlarge", autofocus="autofocus") }}
+        <button class="btn" type="submit">Save event</button>
+
+    </form>
+  </div>
+  <div class="span7">
+          <label>Map:</label>
+      <div id="mapdiv"></div>
+
+      <label>Search city:</label>
+      <input class="search-query" type="text" id="address" name="address" value=""/>
+<!--      <a class="btn"  href="#" onclick="user_submit(); return false;">Geocode</a>-->
+      <input class="btn"  type=button value="Get Geocode" onclick="user_submit(); return false;"/>
+
+      <div id="position"></div>
+   </div>
+</div>
+{% endblock %}

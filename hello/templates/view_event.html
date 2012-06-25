@@ -1,0 +1,79 @@
+{% from "util.html" import render_field %}
+
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+        <script type="text/javascript">
+        //<![CDATA[
+        var mapstraction2;
+        function initialize2() {
+            mapstraction2 = new mxn.Mapstraction('mapdiv','openlayers');
+//             mapstraction2.addMarker( new mxn.Marker( new mxn.LatLonPoint(-51.85022187628225,-103.35939159988392)));
+        //     advancedMarker();
+                      mapstraction2.addMarkerWithData( new mxn.Marker( new mxn.LatLonPoint( {{ entry.latitude|safe }} , {{ entry.longitude|safe }} )),{
+        //                     infoBubble :  {{ entry.title}},
+                            label : "tooltip",
+                            date : "new Date()",
+                            marker : 1,
+                            draggable : false,
+                            hover : true
+                        });
+
+          mapstraction2.autoCenterAndZoom();
+        }
+
+        function advancedMarker() {
+            mapstraction2.addMarkerWithData(new mxn.Marker( new mxn.LatLonPoint(44.4004,20.1435)),{
+                infoBubble : "Advanced Marker",
+                label : "tooltip",
+                date : "new Date()",
+                marker : 4,
+                iconShadow: "http://mapstraction.appspot.com/images/blank.png",
+                iconShadowSize : [0,0],
+                icon : "http://mapstraction.appspot.com/images/usgs_marker.png",
+                iconSize : [20,20],
+                draggable : false,
+                hover : true
+            });
+
+        }
+        //]]>
+        </script>
+
+     <script type="text/javascript">
+        window.onload=function(){
+            initialize2();
+        }
+    </script>
+
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="row-fluid well">
+      <div id="mapdiv"></div>
+      <label>Search city:</label>
+      <input class="search-query" type="text" id="address" name="address" value="" size="35"/>
+      <input class="btn"  type=button value="Get Geocode" onclick="user_submit(); return false;"/>
+
+      <div id="position"></div>
+
+      <div="row">
+              <div class="span6"><h3>{{ entry.text }}</h3>
+                   {{ entry.text2|safe }} <br/>
+                   <dl class="dl-horizontal">
+                        <dt>Longitude</dt>
+                        <dd>{{ entry.longitude }}</dd>
+                        <dt>Latitude</dt>
+                        <dd>{{ entry.latitude }}</dd>
+                        <dt>User</dt>
+                        <dd>{{ entry.user.username }}</dd>
+                        <dt>Date</dt>
+                        <dd>{{ entry.date }}</dd>
+                    </dl>
+              </div>
+      </div>
+    </div>
+{% endblock %}

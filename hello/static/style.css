@@ -1,0 +1,14 @@
+body {
+    padding-top: 60px;
+}
+#mapdiv {
+        height: 400px;
+/*         width: 550px; */
+         width:100%
+}
+
+.row-fluid #mapdiv {
+        height: 600px;
+/*        width: 940px;*/
+        width:100%
+}

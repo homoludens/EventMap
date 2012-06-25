@@ -1,0 +1,15 @@
+{% from "util.html" import render_field %}
+
+{% extends "base.html" %} 
+
+{% block content %}
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ render_field(form.username, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.password, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.confirm, label=True, class="input-xlarge", autofocus="autofocus") }}
+        {{ render_field(form.email, label=True, class="input-xlarge", autofocus="autofocus") }}
+        <button class="btn" type="submit">Register</button>
+    </form>
+    <a href="/fblogin">Login with Facebook</a>
+{% endblock %}

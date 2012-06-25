@@ -1,0 +1,12 @@
+Flask
+Flask-Mail
+Flask-Login
+Flask-SQLAlchemy
+Flask-WTF
+Flask-OAuth
+Flask-Bcrypt
+Flask-DebugToolbar
+Flask-Admin
+WTAlchemy
+itsdangerous
+simplejson
