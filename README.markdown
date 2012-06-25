@@ -50,6 +50,11 @@ Although it is possible for a Flask app to be contained entirely within a single
 
     python main.py
 
+
+### Facebook OAuth login
+    
+    go to http://localhost:5000 to view application and to make fb login to work
+    
 ## Screenshot
 
 ![](https://raw.github.com/homoludens/EventMap/master/screenshot.png)
