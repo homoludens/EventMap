@@ -1,10 +1,10 @@
-# Hello Flask
+# Event Map
 
 Simple Event Map Flask web application, including SQLAlchemy, WTForms and Bootstrap, OAuth, and more...
 
 ## Demo
 
-http://mfogleman.webfactional.com/hello/
+
 
 # Installation
 
