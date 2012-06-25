@@ -11,7 +11,7 @@ Simple Event Map Flask web application, including SQLAlchemy, WTForms and Bootst
 ## Setting up virual envirement
     
     sudo pip install virtualenv
-    $ . venv/bin/activatevirtualenv venv
+    $ virtualenv venv
     $ . venv/bin/activate
 
 ## Exit virtualenv
