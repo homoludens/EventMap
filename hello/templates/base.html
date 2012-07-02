@@ -51,15 +51,15 @@
                 // create mxn object
                 mapstraction = new mxn.Mapstraction('mapdiv','openlayers');
 
-                mapstraction.addControls({
-                        pan: true,
-                        zoom: 'small',
-                        map_type: true
-                });
+//                 mapstraction.addControls({
+//                         pan: true,
+//                         zoom: 'small',
+//                         map_type: true
+//                 });
 
-                var latlon = new mxn.LatLonPoint(48.33, -4.77);
+                var latlon = new mxn.LatLonPoint(48.33, 11.77);
 
-                mapstraction.setCenterAndZoom(latlon, 10);
+                mapstraction.setCenterAndZoom(latlon, 4);
                 mapstraction.mousePosition('position');
 
                 geocoder = new mxn.Geocoder('openlayers',geocode_return);

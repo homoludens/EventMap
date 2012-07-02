@@ -13,10 +13,10 @@
         //     advancedMarker();
             {% for entry in comments %}
                       mapstraction2.addMarkerWithData( new mxn.Marker( new mxn.LatLonPoint( {{ entry.latitude|safe }} , {{ entry.longitude|safe }} )),{
-        //                     infoBubble :  {{ entry.title}},
+                            infoBubble :  "<h3>{{ entry.text|safe }}</h3>{{ entry.text2|safe }}",
                             label : "tooltip",
                             date : "new Date()",
-                            marker : 1,
+                            marker : 2,
                             draggable : false,
                             hover : true
                         });
