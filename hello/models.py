@@ -3,15 +3,15 @@ from datetime import datetime
 from flaskext.bcrypt import Bcrypt
 
 from flask.ext.login import (LoginManager, current_user, login_required,
-                            login_user, logout_user, UserMixin, AnonymousUser,
+                            login_user, logout_user, UserMixin, AnonymousUserMixin,
                             confirm_login, fresh_login_required)
 
 #from flask_dashed.admin import Admin
 #from flask_dashed.ext.sqlalchemy import ModelAdminModule, model_form
 
 from flask.ext import admin, wtf
-from flask.ext.admin.contrib import sqlamodel
-from flask.ext.admin.contrib.sqlamodel import filters
+from flask.ext.admin.contrib import sqla
+from flask.ext.admin.contrib.sqla import filters
 
 
 from flask_sqlalchemy import SQLAlchemy
@@ -21,6 +21,7 @@ from sqlalchemy.orm import aliased, contains_eager
 from werkzeug import OrderedMultiDict
 from  forms import SignupForm, CommentForm
 
+from wtforms import validators
 
 bcrypt = Bcrypt()
 
@@ -88,7 +89,7 @@ class Comment(db.Model):
         return self.text
 
 # Customized Post model admin
-class CommentAdmin(sqlamodel.ModelView):
+class CommentAdmin(sqla.ModelView):
     # Visible columns in the list view
     #list_columns = ('title', 'user')
     #excluded_list_columns = ['text']
@@ -110,7 +111,7 @@ class CommentAdmin(sqlamodel.ModelView):
     # Pass arguments to WTForms. In this case, change label for text field to
     # be 'Big Text' and add required() validator.
     form_args = dict(
-                    text=dict(label='Big Text', validators=[wtf.required()])
+                    text=dict(label='Big Text', validators=[validators.Required()])
                 )
 
     def __init__(self, session):
@@ -122,5 +123,5 @@ class CommentAdmin(sqlamodel.ModelView):
 admin = admin.Admin(app, 'Event Map Admin')
 
 # Add views
-admin.add_view(sqlamodel.ModelView(Users, db.session))
+admin.add_view(sqla.ModelView(Users, db.session))
 admin.add_view(CommentAdmin(db.session))

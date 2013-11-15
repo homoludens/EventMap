@@ -1,4 +1,5 @@
-from flask.ext.wtf import Form, TextField, DecimalField, TextAreaField, DateField, validators, PasswordField, BooleanField
+from flask_wtf import Form
+from wtforms import TextField, DecimalField, TextAreaField, DateField, validators, PasswordField, BooleanField
 
 class CommentForm(Form):
     text = TextField('Title', [validators.Required()])

@@ -6,9 +6,9 @@ import datetime
 from itsdangerous import TimestampSigner, URLSafeSerializer
 
 from flask.ext.login import (LoginManager, current_user, login_required,
-                            login_user, logout_user, UserMixin, AnonymousUser,
+                            login_user, logout_user, UserMixin, AnonymousUserMixin,
                             confirm_login, fresh_login_required)
-from flaskext.mail import Mail, Message
+from flask.ext.mail import Mail, Message
 
 from flaskext.bcrypt import Bcrypt
 
@@ -20,6 +20,8 @@ from flask.ext.oauth import OAuth
 from sqlalchemy.orm import aliased, contains_eager
 
 from datetime import datetime
+
+from wtforms import Form
 
 oauth = OAuth()
 
@@ -40,7 +42,7 @@ bcrypt = Bcrypt()
         
 mail = Mail(app)
 
-class Anonymous(AnonymousUser):
+class Anonymous(AnonymousUserMixin):
     name = u"Anonymous"
 
 login_manager = LoginManager()

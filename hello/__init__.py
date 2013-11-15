@@ -1,6 +1,6 @@
 from flask import Flask, session
 from flask.ext.sqlalchemy import SQLAlchemy
-from flaskext.mail import Mail, Message
+from flask.ext.mail import Mail, Message
 
 #from flask_dashed.admin import Admin
 #from flask_dashed.ext.sqlalchemy import ModelAdminModule, model_form
